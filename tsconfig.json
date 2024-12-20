@@ -5,7 +5,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.astro"
-  ],
+, "src/pages/personal-details.atro"  ],
   "exclude": [
     "dist"
   ],
