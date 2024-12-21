@@ -44,10 +44,10 @@ const DocumentsComponent = () => {
           onImageChange={handleImageChange}
         />
         <div className="flex flex-col items-end gap-4">
-        <div className="flex flex-col gap-2 mt-4">
-            <PrimaryButton link="/fatca-declaration"/>
+          <div className="flex flex-col gap-2 mt-4">
+            <PrimaryButton link="/fatca-declaration" />
             <SecondaryButton link="/fatca-declaration" />
-            </div>
+          </div>
         </div>
       </div>
     </div>

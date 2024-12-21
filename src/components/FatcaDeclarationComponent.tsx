@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import VerificationComponent from "./verificationComponent";
+import PrimaryButton from "./PrimaryButton";
+import SecondaryButton from "./SecondaryButton";
 
 const FatcaDeclarationComponent = () => {
     const [citizenIsOn, setCitizenIsOn] = useState(false)
@@ -31,7 +33,14 @@ const FatcaDeclarationComponent = () => {
                 </span>
             </div>
             <VerificationComponent title="Indian Citizen" isOn={citizenIsOn} setIsOn={setCitizenIsOn}/>
+            <VerificationComponent title="Indian Tax Resident" isOn={taxIsOn} setIsOn={setTaxIsOn}/>
+            <VerificationComponent title="Not politically exposed" isOn={politicallyIsOn} setIsOn={setpoliticallyIsOn}/>
       </div>
+          <div className="flex flex-col gap-2 mt-4 items-center">
+            <PrimaryButton link="/kyc-details" />
+            <SecondaryButton link="/kyc-details" />
+          </div>
+        
     </div>
   );
 };
