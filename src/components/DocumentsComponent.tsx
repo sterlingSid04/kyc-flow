@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import DocumentUpload from "./DocumentUpload";
+import PrimaryButton from "./PrimaryButton";
+import SecondaryButton from "./SecondaryButton";
 
 const DocumentsComponent = () => {
-    const [image, setImage] = useState<File | null>(null);
-    const handleImageChange = (image: File | null) => {
-        if(image){
-            setImage(image);
-        } else{
-            setImage(null);
-        }
+  const [image, setImage] = useState<File | null>(null);
+  const handleImageChange = (image: File | null) => {
+    if (image) {
+      setImage(image);
+    } else {
+      setImage(null);
     }
+  };
   return (
     <div className="flex flex-col gap-2">
       <Header />
@@ -35,6 +37,18 @@ const DocumentsComponent = () => {
           description="Click a picture of your PAN Card and upload"
           onImageChange={handleImageChange}
         />
+        <hr className="w-[22.375rem] h-0 border-t border-[#CDCDCD] border-opacity-100 py-4" />
+        <DocumentUpload
+          title="Signature"
+          description="Sign on a blank white paper(same as in Bank records).Click a picture & upload."
+          onImageChange={handleImageChange}
+        />
+        <div className="flex flex-col items-end gap-4">
+        <div className="flex flex-col gap-2 mt-4">
+            <PrimaryButton link="/fatca-declaration"/>
+            <SecondaryButton link="/fatca-declaration" />
+            </div>
+        </div>
       </div>
     </div>
   );
