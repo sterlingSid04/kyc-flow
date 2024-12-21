@@ -8,6 +8,7 @@ export default {
 			},
 			colors: {
 				customBlue: '#052F5F',
+				customGrey : 'rgba(5, 47, 95, 0.60)',
 			},			
 		},
 	},
