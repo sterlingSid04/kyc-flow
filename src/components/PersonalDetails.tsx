@@ -8,7 +8,6 @@ import SecondaryButton from "./SecondaryButton";
 const PersonalDetails = () => {
   const [email, setEmail] = useState("gmail");
 
-  console.log("email is", email);
   return (
     <div className="flex flex-col gap-2">
       <Header />
