@@ -198,7 +198,7 @@ const PersonalDetails = () => {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-            <PrimaryButton link="/personal-details" onClick={handleSubmit}/>
+            <PrimaryButton link="/documents" onClick={handleSubmit}/>
             <SecondaryButton link="/documents" />
             </div>
         </div>

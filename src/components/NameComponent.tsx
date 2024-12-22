@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface NameComponentProps {
-    heading: string;
+    heading: string |null;
     description: string | null;
   
 }

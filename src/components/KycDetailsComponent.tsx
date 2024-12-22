@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import NameComponent from "./NameComponent";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 
 const KycDetailsComponents = () => {
+  const [kycData, setKycData] = useState<{ [key: string]: string }>({
+    email: "", // Set default values for your kycData fields if needed.
+    name: "",
+    maritalStatus: "",
+    annualIncome: "",
+    fatherName: "",
+    motherName: "",
+  });
+
+  // useEffect is used so that we set storedData only when client side has rendered properly as Astro uses SSR initially.
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("kycData") || "{}");
+    setKycData(storedData);
+  }, []);
   return (
     <div className="flex flex-col gap-2">
       <Header />
@@ -24,6 +38,7 @@ const KycDetailsComponents = () => {
         </span>
       </div>
       <div className="flex flex-col items-center gap-6 py-6">
+        {/* User Details Section ----------------------> */}
         <div className="flex flex-col items-start w-[22.375rem] p-1 px-4 rounded-lg border border-[#8E959F] bg-white">
           <div className="flex items-start gap-[0.625rem] py-2 self-stretch">
             <span className="flex-1 text-customBlue font-sans text-sm font-bold leading-6 tracking-[0.01313rem]">
@@ -39,14 +54,17 @@ const KycDetailsComponents = () => {
           <div className="flex flex-col items-start gap-2 pb-2">
             <NameComponent
               heading="PAN Card Number"
-              description={localStorage.getItem("PanCardNumber")}
+              description="Indian citizen"
             />
             <NameComponent
               heading="Name"
-              description={localStorage.getItem("Name")}
+              description="Siddharth Poddar"
             />
           </div>
         </div>
+
+        {/* Personal Details Section ----------------------> */}
+
         <div className="flex flex-col items-start w-[22.375rem] p-1 px-4 rounded-lg border border-[#8E959F] bg-white">
           <div className="flex items-start gap-[0.625rem] py-2 self-stretch">
             <span className="flex-1 text-customBlue font-sans text-sm font-bold leading-6 tracking-[0.01313rem]">
@@ -56,19 +74,19 @@ const KycDetailsComponents = () => {
           <div className="flex flex-col items-start gap-2 pb-2">
             <NameComponent
               heading="Gender"
-              description={localStorage.getItem("Gender")}
+              description="Male"
             />
             <NameComponent
               heading="Date of birth"
-              description={localStorage.getItem("DOB")}
+              description="04/05/2001"
             />
             <NameComponent
               heading="Address"
-              description={localStorage.getItem("Address")}
+              description="India, Earth, Milky Way Galaxy, Solar System"
             />
             <NameComponent
               heading="Pincode"
-              description={localStorage.getItem("Pincode")}
+              description="232131"
             />
           </div>
           <div className="flex items-start w-[20.375rem] p-2 gap-[0.625rem] bg-[#F0F3F5]">
@@ -80,6 +98,9 @@ const KycDetailsComponents = () => {
             </span>
           </div>
         </div>
+
+        {/* Kyc Details Section ----------------------> */}
+
         <div className="flex flex-col items-start w-[22.375rem] p-1 px-4 rounded-lg border border-[#8E959F] bg-white">
           <div className="flex items-start gap-[0.625rem] py-2 self-stretch">
             <span className="flex-1 text-customBlue font-sans text-sm font-bold leading-6 tracking-[0.01313rem]">
@@ -95,30 +116,33 @@ const KycDetailsComponents = () => {
           <div className="flex flex-col items-start gap-2 pb-2">
             <NameComponent
               heading="Email"
-              description={localStorage.getItem("Email")}
+              description={kycData.email}
             />
             <div className="flex items-start gap-2">
               <NameComponent
                 heading="Marital Status"
-                description={localStorage.getItem("MaritalStatus")}
+                description={kycData.maritalStatus}
               />
               <NameComponent
                 heading="Annual Income"
-                description={localStorage.getItem("AnnualIncome")}
+                description={kycData.annualIncome}
               />
             </div>
             <div className="flex items-start gap-2">
               <NameComponent
                 heading="Father's Name"
-                description={localStorage.getItem("FatherName")}
+                description={kycData.fatherName}
               />
               <NameComponent
                 heading="Mother's Name"
-                description={localStorage.getItem("MotherName")}
+                description={kycData.motherName}
               />
             </div>
           </div>
         </div>
+
+        {/* Documents Section(for this section for demonstration purposes the images are kept blank, in ideal situations they would have been fetched through an API call) -----------------> */}
+
         <div className="flex flex-col items-start w-[22.375rem] p-1 px-4 rounded-lg border border-[#8E959F] bg-white">
           <div className="flex items-start gap-[0.625rem] py-2 self-stretch">
             <span className="flex-1 text-customBlue font-sans text-sm font-bold leading-6 tracking-[0.01313rem]">
@@ -175,10 +199,12 @@ const KycDetailsComponents = () => {
             </div>
           </div>
         </div>
+
         <div className="flex flex-col gap-2 items-center">
           <PrimaryButton link="/kyc-details" />
           <SecondaryButton link="/kyc-details" />
         </div>
+        
       </div>
     </div>
   );
