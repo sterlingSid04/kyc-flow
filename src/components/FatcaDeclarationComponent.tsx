@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import VerificationComponent from "./verificationComponent";
 import PrimaryButton from "./PrimaryButton";
@@ -8,9 +8,16 @@ const FatcaDeclarationComponent = () => {
     const [citizenIsOn, setCitizenIsOn] = useState(false)
     const [taxIsOn, setTaxIsOn] = useState(false)
     const [politicallyIsOn, setpoliticallyIsOn] = useState(false)
+    const [disabled, setDisabled] = useState(true)
+
+    useEffect(() =>{
+        if(citizenIsOn && taxIsOn &&politicallyIsOn){
+            setDisabled(false)
+        }
+    }, [citizenIsOn, taxIsOn, politicallyIsOn])
   return (
     <div className="flex flex-col gap-2">
-      <Header />
+      <Header link="/documents" />
       <div className="flex w-[24.375rem] p-[1.5rem_1rem_1rem_1rem] flex-col items-start gap-[0.625rem]">
         <span className="text-customBlue font-sans text-[1.25rem] font-bold leading-normal tracking-[-0.01875rem]">
           FATCA Declaration
@@ -37,7 +44,7 @@ const FatcaDeclarationComponent = () => {
             <VerificationComponent title="Not politically exposed" isOn={politicallyIsOn} setIsOn={setpoliticallyIsOn}/>
       </div>
           <div className="flex flex-col gap-2 mt-4 items-center">
-            <PrimaryButton link="/kyc-details" />
+            <PrimaryButton link="/kyc-details" disabled ={disabled} />
             <SecondaryButton link="/kyc-details" />
           </div>
         

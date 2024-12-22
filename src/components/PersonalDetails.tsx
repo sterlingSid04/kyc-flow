@@ -40,7 +40,7 @@ const PersonalDetails = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <Header />
+      <Header link="/" />
       <div className="flex flex-col">
         <div className="flex w-[24.375rem] p-[1.5rem_1rem_1rem_1rem] flex-col items-start gap-[0.625rem]">
           <span className="text-customBlue font-sans text-[1.25rem] font-bold leading-normal tracking-[-0.01875rem]">
@@ -198,7 +198,7 @@ const PersonalDetails = () => {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-            <PrimaryButton link="/documents" onClick={handleSubmit}/>
+            <PrimaryButton link="/documents" onClick={handleSubmit} disabled ={false}/>
             <SecondaryButton link="/documents" />
             </div>
         </div>

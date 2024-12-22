@@ -15,7 +15,7 @@ const DocumentsComponent = () => {
   };
   return (
     <div className="flex flex-col gap-2">
-      <Header />
+      <Header link="/personal-details" />
       <div className="flex w-[24.375rem] p-[1.5rem_1rem_1rem_1rem] flex-col items-start gap-[0.625rem]">
         <span className="text-customBlue font-sans text-[1.25rem] font-bold leading-normal tracking-[-0.01875rem]">
           Documents
@@ -45,7 +45,7 @@ const DocumentsComponent = () => {
         />
         <div className="flex flex-col items-end gap-4">
           <div className="flex flex-col gap-2 mt-4">
-            <PrimaryButton link="/fatca-declaration" />
+            <PrimaryButton link="/fatca-declaration" disabled ={false} />
             <SecondaryButton link="/fatca-declaration" />
           </div>
         </div>

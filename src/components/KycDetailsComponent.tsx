@@ -14,6 +14,8 @@ const KycDetailsComponents = () => {
     motherName: "",
   });
 
+  // useEffect for setting the Next button 
+
   // useEffect is used so that we set storedData only when client side has rendered properly as Astro uses SSR initially.
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("kycData") || "{}");
@@ -21,7 +23,7 @@ const KycDetailsComponents = () => {
   }, []);
   return (
     <div className="flex flex-col gap-2">
-      <Header />
+      <Header link="/fatca-declaration" />
       <div className="flex w-[24.375rem] p-[1.5rem_1rem_1rem_1rem] flex-col items-start gap-[0.625rem]">
         <span className="text-customBlue font-sans text-[1.25rem] font-bold leading-normal tracking-[-0.01875rem]">
           KYC Details
@@ -201,10 +203,10 @@ const KycDetailsComponents = () => {
         </div>
 
         <div className="flex flex-col gap-2 items-center">
-          <PrimaryButton link="/kyc-details" />
+          <PrimaryButton link="/kyc-details" disabled = {false} />
           <SecondaryButton link="/kyc-details" />
         </div>
-        
+
       </div>
     </div>
   );
