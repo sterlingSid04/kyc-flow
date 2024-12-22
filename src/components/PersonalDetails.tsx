@@ -24,6 +24,8 @@ const PersonalDetails = () => {
     // Save to localStorage
     localStorage.setItem("kycData", JSON.stringify(formData));
 
+    console.log("formdata is", formData);
+
     // Send to API
     const response = await fetch("https://run.mocky.io/v3/5938a5e1-276f-4b4f-9df2-554f265ce8c2", {
       method: "POST",
@@ -69,6 +71,7 @@ const PersonalDetails = () => {
                   id="single"
                   name="maritalStatus"
                   value="single"
+                  onChange={(e) => updateFormData("maritalStatus", e.target.value)}
                 />
                 <label
                   htmlFor="Single"
@@ -83,6 +86,7 @@ const PersonalDetails = () => {
                   id="married"
                   name="maritalStatus"
                   value="married"
+                  onChange={(e) => updateFormData("maritalStatus", e.target.value)}
                 />
                 <label
                   htmlFor="married"
@@ -138,6 +142,7 @@ const PersonalDetails = () => {
                   id="Below 1 Lakh"
                   name="maritalStatus"
                   value="Below 1 Lakh"
+                  onChange={(e) => updateFormData("annualIncome", e.target.value)}
                 />
                 <label
                   htmlFor="Below 1 Lakh"
@@ -152,6 +157,7 @@ const PersonalDetails = () => {
                   id="1-5 Lakhs"
                   name="maritalStatus"
                   value="1-5 Lakhs"
+                  onChange={(e) => updateFormData("annualIncome", e.target.value)}
                 />
                 <label
                   htmlFor="1-5 Lakhs"
@@ -166,6 +172,7 @@ const PersonalDetails = () => {
                   id="5-10 Lakhs"
                   name="maritalStatus"
                   value="5-10 Lakhs"
+                  onChange={(e) => updateFormData("annualIncome", e.target.value)}
                 />
                 <label
                   htmlFor="5-10 Lakhs"
@@ -180,6 +187,7 @@ const PersonalDetails = () => {
                   id="25 lakhs and above"
                   name="maritalStatus"
                   value="25 lakhs and above"
+                  onChange={(e) => updateFormData("annualIncome", e.target.value)}
                 />
                 <label
                   htmlFor="25 lakhs and above"
@@ -190,7 +198,7 @@ const PersonalDetails = () => {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-            <PrimaryButton link="/documents"/>
+            <PrimaryButton link="/personal-details" onClick={handleSubmit}/>
             <SecondaryButton link="/documents" />
             </div>
         </div>
