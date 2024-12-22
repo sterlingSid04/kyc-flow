@@ -8,6 +8,34 @@ import SecondaryButton from "./SecondaryButton";
 const PersonalDetails = () => {
   const [email, setEmail] = useState("gmail");
 
+  const [formData, setFormData] = useState({
+    maritalStatus: "",
+    fatherName: "",
+    motherName: "",
+    email: "",
+    annualIncome: "",
+  });
+
+  const updateFormData = (key: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleSubmit = async () => {
+    // Save to localStorage
+    localStorage.setItem("kycData", JSON.stringify(formData));
+
+    // Send to API
+    const response = await fetch("https://run.mocky.io/v3/5938a5e1-276f-4b4f-9df2-554f265ce8c2", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+    console.log("API Response from Mock API is", data); // For demonstration purposes we are using a Mock API
+  };
+
+
+
   return (
     <div className="flex flex-col gap-2">
       <Header />
@@ -66,14 +94,20 @@ const PersonalDetails = () => {
             </div>
           </div>
           <InputComponent
-            title="Father's Name"
-            placeholder="Enter your father's name here"
-          />
-          <InputComponent
-            title="Mother's Name"
-            placeholder="Enter your Mother's name here"
-          />
-          <InputComponent title="Email" placeholder={email} email={true} />
+        title="Father's Name"
+        placeholder="Enter your father's name here"
+        onChange={(value) => updateFormData("fatherName", value)}
+      />
+      <InputComponent
+        title="Mother's Name"
+        placeholder="Enter your mother's name here"
+        onChange={(value) => updateFormData("motherName", value)}
+      />
+      <InputComponent
+        title="Email"
+        placeholder="Enter your email"
+        onChange={(value) => updateFormData("email", value)}
+      />
           <div className="flex justify-center flex-wrap items-start self-stretch h-[6.25rem] p-[0rem_1rem_0.25rem_0.375rem] gap-[0.5rem] rounded-[0.5rem]">
             <EmailNameSelector
               emailName="gmail.com"
