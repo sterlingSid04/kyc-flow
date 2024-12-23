@@ -109,7 +109,7 @@ const PersonalDetails = () => {
       />
       <InputComponent
         title="Email"
-        placeholder="Enter your email"
+        placeholder={email}
         onChange={(value) => updateFormData("email", value)}
       />
           <div className="flex justify-center flex-wrap items-start self-stretch h-[6.25rem] p-[0rem_1rem_0.25rem_0.375rem] gap-[0.5rem] rounded-[0.5rem]">
