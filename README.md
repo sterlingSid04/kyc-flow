@@ -5,7 +5,7 @@
 
 ### Deployed link - 
 
-(https://www.netlify.com/)
+(https://kyc-atro-flow.netlify.app/)
 
 ### 1. Clone the Repository
 
