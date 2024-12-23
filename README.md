@@ -1,8 +1,5 @@
 # KYC Flow App
 
-## 🚀 Deployed Link
-
-The deployed app can be accessed [here](https://kyc-flow.netlify.app/).
 
 ## 🚀 Getting Started
 
@@ -30,18 +27,19 @@ npm run dev
 
 
 📦 Tech Stack
-This project uses the following technologies:
+### This project uses the following technologies:
 
-Astro: A static site generator that enables the creation of fast, optimized websites using JavaScript frameworks like React.
-React: A JavaScript library for building user interfaces, used here to manage the state and render components.
-Tailwind CSS: A utility-first CSS framework for creating modern, responsive designs.
-Mocky: A mock API service used for simulating API calls.
+- **Astro**: A static site generator that enables the creation of fast, optimized websites using JavaScript frameworks like React.  
+- **React**: A JavaScript library for building user interfaces, used here to manage the state and render components.  
+- **Tailwind CSS**: A utility-first CSS framework for creating modern, responsive designs.  
+- **Mocky**: A mock API service used for simulating API calls.
 
-🧑‍💻 Project Structure
-The project has the following structure:
 
-text
-Copy code
+## 🗂️ Project Structure
+
+The project follows the structure below:
+
+```plaintext
 /
 ├── public/                # Static assets like images, fonts, etc.
 ├── src/
@@ -52,11 +50,12 @@ Copy code
 │       └── globals.css
 └── package.json           # Project metadata and dependencies
 
-📑 Features
-React Components: Components such as InputComponent and PrimaryButton enhance modularity and reusability.
-Tailwind CSS: Styling is done using Tailwind CSS for utility-first design.
-Mock API: Form submission is simulated with Mocky, allowing the form data to be posted to an API endpoint.
-LocalStorage: Form data is saved in the browser's localStorage for demonstration purposes.
+## 📑 Features
+
+- **React Components**: Components such as `InputComponent` and `PrimaryButton` enhance modularity and reusability.
+- **Tailwind CSS**: Styling is done using **Tailwind CSS** for utility-first design.
+- **Mock API**: Form submission is simulated with **Mocky**, allowing the form data to be posted to an API endpoint.
+- **LocalStorage**: Form data is saved in the browser's `localStorage` for demonstration purposes.
 
 
 
