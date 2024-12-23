@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import InputComponent from "./InputComponent";
-import EmailNameSelector from "./emailNameSelector";
+import EmailNameSelector from "./EmailNameSelector";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 

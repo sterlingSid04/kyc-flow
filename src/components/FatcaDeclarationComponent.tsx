@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
-import VerificationComponent from "./verificationComponent";
+import VerificationComponent from "./VerificationComponent";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 
