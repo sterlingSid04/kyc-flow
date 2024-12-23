@@ -49,6 +49,7 @@ The project follows the structure below:
 │   └── styles/            # Tailwind CSS and custom styles
 │       └── globals.css
 └── package.json           # Project metadata and dependencies
+```
 
 ## 📑 Features
 
